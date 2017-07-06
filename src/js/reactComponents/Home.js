@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './App.css';
-import firebase from './js/firebase/firebase';
-import { changeUsername } from "./js/reduxActions/userActions";
+import { Link } from 'react-router-dom';
+import firebase from '../firebase/firebase';
+import { changeUsername } from '../reduxActions/userActions';
 
 
 
@@ -21,8 +21,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const rootRef = firebase.database().ref().child("text");
-    rootRef.on("value", snap => {
+    const rootRef = firebase.database().ref().child('text');
+    rootRef.on('value', snap => {
       this.setState({
         speed: snap.val()
       })
@@ -46,13 +46,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         <h2>{this.state.speed}</h2>
-        <input ref="myInput1"/>
+        <input ref='myInput1'/>
         <button onClick={this.handleDatabaseUpdate}>UPDATE DATABASE</button>
         <h2>{this.props.userName}</h2>
-        <input ref="myInput2"/>
+        <input ref='myInput2'/>
         <button onClick={this.handleStoreUpdate}>UPDATE STORE</button>
+        <Link to='page'>Go to page</Link>
       </div>
     );
   }

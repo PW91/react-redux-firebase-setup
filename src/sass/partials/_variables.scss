@@ -1,45 +1,9 @@
-/******************************************************************
-Site Name: Millenial Matters
-Authors: Filip Michalski
-
-Stylesheet: Variables
-
-We want to make sure this file ONLY
-contains variables that way our files don't get all messy.
-
-******************************************************************/
-
 $white:				#fff;
-$black:				#211D1D;
-$red: 				#E5392A;
-$gray: 				#888A91;
-$medium-gray:		#CCCFDB;
-$light-gray:		#F0F1F5;
+$black:				#000;
 
-$border-color:		$medium-gray;
 $text-color:        $black;
-$text-accent:		$black;
 
-/**
- * 	BREAKPOINTS
- */
 $breakpoint-mobile: 	480px;
 $breakpoint-tablet:		767px;
 $breakpoint-desktop:	1029px;
 $breakpoint-wide:		1399px;
-
-/**
- * Z-INDEXES
- */
-$z-index-0: 			0;
-$z-index-1: 			1;
-$z-index-2: 			20;
-$z-index-3: 			30;
-$z-index-4: 			40;
-$z-index-5: 			50;
-$z-index-6: 			60;
-
-/**
- * ETC
- */
-$border-radius:3px;

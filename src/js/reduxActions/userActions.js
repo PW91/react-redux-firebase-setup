@@ -1,6 +1,6 @@
 export function changeUsername(name) {
   return {
-    type: "CHANGE_USERNAME",
+    type: 'CHANGE_USERNAME',
     userName: name
   }
 }
