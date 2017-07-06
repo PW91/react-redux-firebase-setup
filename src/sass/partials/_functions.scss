@@ -1,0 +1,7 @@
+/******************
+POINTS TO REMS
+******************/
+// 1 rem = 12 points
+@function pxToRem($pixels){
+	@return $pixels/16 + rem;
+}
