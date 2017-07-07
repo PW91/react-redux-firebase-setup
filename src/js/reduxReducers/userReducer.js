@@ -1,5 +1,6 @@
 const defaultState = {
-	userName: 'Przemek'
+	localUserName: 'Przemek',
+	databaseUserName: 'Zbyszek'
 
 }
 
@@ -7,11 +8,19 @@ export default function reducer( state = defaultState, action ){
 
 	switch (action.type){
 
-		case 'CHANGE_USERNAME':{
+		case 'CHANGE_LOCAL_USER_NAME':{
 
 			return{
 				...state,
-				userName: action.userName
+				localUserName: action.localUserName
+			}
+		}
+
+		case 'CHANGE_DATABASE_USER_NAME':{
+
+			return{
+				...state,
+				databaseUserName: action.databaseUserName
 			}
 		}
 

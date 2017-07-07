@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import firebase from '../firebase/firebase';
-import { changeUsername } from '../reduxActions/userActions';
+import { changeLocalUserName, changeDatabaseUserName } from '../reduxActions/userActions';
 
 
 
@@ -12,45 +12,35 @@ class App extends Component {
 
     super();
 
-    this.state = {
-      speed: 3434
-    }
-
     this.handleDatabaseUpdate = this.handleDatabaseUpdate.bind(this);
     this.handleStoreUpdate = this.handleStoreUpdate.bind(this);
   }
 
   componentDidMount() {
-    const rootRef = firebase.database().ref().child('text');
+    const rootRef = firebase.database().ref().child('user');
     rootRef.on('value', snap => {
-      this.setState({
-        speed: snap.val()
-      })
+      const newName = snap.val();
+      this.props.dispatch(changeDatabaseUserName(newName));
     })     
    }
 
-
-
-
    handleDatabaseUpdate() {
     const newName = this.refs.myInput1.value;
-    firebase.database().ref().child('text').set(newName);
+    firebase.database().ref().child('user').set(newName);
    } 
 
    handleStoreUpdate() {
       const newName = this.refs.myInput2.value;
-      this.props.dispatch(changeUsername(newName));
+      this.props.dispatch(changeLocalUserName(newName));
    }
-
-
 
   render() {
     return (
       <div className='App'>
-        <h2>{this.state.speed}</h2>
+        <h2>{this.props.databaseUser}</h2>
         <input ref='myInput1'/>
         <button onClick={this.handleDatabaseUpdate}>UPDATE DATABASE</button>
-        <h2>{this.props.userName}</h2>
+        <h2>{this.props.localUser}</h2>
         <input ref='myInput2'/>
         <button onClick={this.handleStoreUpdate}>UPDATE STORE</button>
         <Link to='page'>Go to page</Link>
@@ -63,7 +53,8 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    userName: state.user.userName
+    localUser: state.user.localUserName,
+    databaseUser: state.user.databaseUserName
   }
 }
 
