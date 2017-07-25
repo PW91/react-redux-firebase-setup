@@ -1,0 +1,22 @@
+.home-page {
+    &__header {
+        background-color: #23262B;
+        background-image: url('./assets/img/desert.jpg');
+        height: 500px;
+        background-size: cover;
+    }
+
+    &__current-task {
+        background: linear-gradient(130.51deg, #10C596 0%, #2BC2C7 100%);
+        padding: 50px 0;
+    }
+
+    &__task {
+        border-radius: 100px;
+        box-shadow: 0 0 5px 1px rgba(135,157,179,0.25);
+        width: 600px;
+        padding: 20px 0;
+        margin: 25px auto;
+        text-align: center;
+    }
+}
