@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './js/reactComponents/Home';
-import Page from './js/reactComponents/Page';
+import Calendar from './js/reactComponents/Calendar';
 import Layout from './js/reactComponents/Layout';
 import store from './js/store/Store';
 import registerServiceWorker from './registerServiceWorker';
@@ -18,8 +17,7 @@ ReactDOM.render(
 	<Layout>
 	<Router>
 		<Switch>
-			<Route exact={true} path='/' component={Home}/>
-			<Route path='/page' component={Page}/>
+			<Route exact={true} path='/' component={Calendar}/>
 		</Switch>
 	</Router>
 	</Layout>
