@@ -13,6 +13,10 @@ export default class Calendar extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentWillMount() {
+    
+  }
+
   handleClick() {
     console.log("SDsadsdsad");
   }
