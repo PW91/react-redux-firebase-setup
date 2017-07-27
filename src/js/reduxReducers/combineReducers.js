@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import user from './userReducer';
+import calendarData from './calendarDataReducer';
 
 export default combineReducers({
-    user
+    calendarData
 });
